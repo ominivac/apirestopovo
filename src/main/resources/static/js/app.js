@@ -28,10 +28,10 @@ appCliente.controller("indexController", function($scope, $http){
 	$scope.salvarCliente= function(){
 		$http({method:'POST', url:'http://localhost:8080/clientes', data:$scope.cliente})
 		.then(function(response){
-			$scope.clientes = response.data;
+			$scope.clientes.push(response.data);
 			
-			console.log(response.data);
-			console.log(response.status);
+			//console.log(response.data);
+			//console.log(response.status);
 		} , function(response){
 			console.log(response.data);
 			console.log(response.status);
