@@ -9,6 +9,17 @@
 <body ng-controller="indexController">
 
 Oi {{ nome +' ' + sobrenome }}
+<br></br>
+
+{{clientes}}
+
+<p></p>
+
+<div ng-repeat="cli in clientes"> 
+	{{cli.id +' '+ cli.nome}}
+
+</div>
+
 
 </body>
 </html>
