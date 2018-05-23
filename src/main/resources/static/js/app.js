@@ -38,6 +38,21 @@ appCliente.controller("indexController", function($scope, $http){
 		} );
 	};
 	
+	$scope.excluirCliente= function(cliente){
+		$http({method:'DELETE', url:'http://localhost:8080/clientes/'+cliente.id})
+		.then(function(response){
+			pos = $scope.clientes.indexOf(cliente);
+			$scope.clientes.splice(pos, 1);
+			
+			//console.log(response.data);
+			//console.log(response.status);
+		} , function(response){
+			console.log(response.data);
+			console.log(response.status);
+		} );
+	};
+	
+	
 	
 	$scope.carregarClientes();
 });
