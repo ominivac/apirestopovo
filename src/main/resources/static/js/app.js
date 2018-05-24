@@ -1,58 +1,17 @@
 //criacao do modulo principal da app
-var appCliente = angular.module("appCliente", []);
+var appCliente = angular.module("appCliente", ['ngRoute']);
 
-
-//criacao de controllers
-appCliente.controller("indexController", function($scope, $http){
+appCliente.config(function($routeProvider, $locationProvider){
 	
-	$scope.nome = "roberto";
-	$scope.sobrenome = "sousa";
-	$scope.clientes = [];
-	$scope.cliente = {};
+	$routeProvider
+	.when("/clientes", {templateUrl:'view/cliente.html', controller:'clienteController'})
+	.when("/cidades", {templateUrl:'view/cidade.html', controller:'cidadeController'})
+	.when("/estados", {templateUrl:'view/estado.html', controller:'estadoController'})
+	.otherwise({redirectTo:'/'});
 	
-	$scope.carregarClientes = function(){
-		$http({method:'GET', url:'http://localhost:8080/clientes'})
-		.then(function(response){
-			$scope.clientes = response.data;
-			
-			console.log(response.data);
-			console.log(response.status);
-		} , function(response){
-			console.log(response.data);
-			console.log(response.status);
-		} );
+	$locationProvider.html5Mode(true);
 	
-	};
-	
-	
-	$scope.salvarCliente= function(){
-		$http({method:'POST', url:'http://localhost:8080/clientes', data:$scope.cliente})
-		.then(function(response){
-			$scope.clientes.push(response.data);
-			
-			//console.log(response.data);
-			//console.log(response.status);
-		} , function(response){
-			console.log(response.data);
-			console.log(response.status);
-		} );
-	};
-	
-	$scope.excluirCliente= function(cliente){
-		$http({method:'DELETE', url:'http://localhost:8080/clientes/'+cliente.id})
-		.then(function(response){
-			pos = $scope.clientes.indexOf(cliente);
-			$scope.clientes.splice(pos, 1);
-			
-			//console.log(response.data);
-			//console.log(response.status);
-		} , function(response){
-			console.log(response.data);
-			console.log(response.status);
-		} );
-	};
-	
-	
-	
-	$scope.carregarClientes();
 });
+
+
+	
