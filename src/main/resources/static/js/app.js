@@ -6,6 +6,7 @@ appCliente.config(function($routeProvider, $locationProvider){
 	$routeProvider
 	.when("/clientes", {templateUrl:'view/cliente.html', controller:'clienteController'})
 	.when("/cidades", {templateUrl:'view/cidade.html', controller:'cidadeController'})
+	.when("/clientes/:clienteId", {templateUrl:'view/cliente-detalhe.html', controller:'clienteDetalheController'})
 	.when("/estados", {templateUrl:'view/estado.html', controller:'estadoController'})
 	.otherwise({redirectTo:'/'});
 	
