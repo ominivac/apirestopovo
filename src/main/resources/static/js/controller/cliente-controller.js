@@ -23,19 +23,29 @@ appCliente.controller("clienteController", function($scope, $http){
 	
 	
 	$scope.salvarCliente= function(){
-		$http({method:'POST', url:'http://localhost:8080/clientes', data:$scope.cliente})
-		.then(function(response){
-			$scope.clientes.push(response.data);
-			
-			carregarClientes();
-			$scope.cancelarAlteracaoCliente();
-			
-			//console.log(response.data);
-			//console.log(response.status);
-		} , function(response){
-			console.log(response.data);
-			console.log(response.status);
-		} );
+		
+		if($scope.frmCliente.$valid){
+			$http({method:'POST', url:'http://localhost:8080/clientes', data:$scope.cliente})
+			.then(function(response){
+				$scope.clientes.push(response.data);
+				
+				carregarClientes();
+				$scope.cancelarAlteracaoCliente();
+				$scope.frmCliente.$setPristine(true);
+				
+				//console.log(response.data);
+				//console.log(response.status);
+			} , function(response){
+				console.log(response.data);
+				console.log(response.status);
+			} );
+		}//if
+		else{
+			window.alert("dados invalidos");
+		}
+		
+		
+		
 	};
 	
 	$scope.excluirCliente= function(cliente){

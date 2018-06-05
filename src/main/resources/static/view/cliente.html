@@ -1,10 +1,54 @@
 <div>
-	Oi {{cliente.nome }}<br/>
-	
-		<input type="text" ng-model="cliente.nome"/>
+	<form novalidade name="frmCliente">
+		<div>
+			<label>Nome: </label>
+			<input type="text" ng-minlenght="4" name="txtNome" ng-model="cliente.nome" required/>
+			<span bg-show="frmCliente.txtNome.$error.required && frmCliente.txtNome.$dirty">Campo Nome Obrigatorio</span>
+		</div>
 		
-		<input type="button" value="salvar" ng-click="salvarCliente()"/>
-		<input type="button" value="cancelar" ng-click="cancelarAlteracaoCliente()"/>
+		<div>
+		<label>Email: </label>
+			<input type="text" name="txtEmail" ng-model="cliente.email" required/>
+			<span bg-show="frmCliente.txtEmail.$error.required && frmCliente.txtEmail.$dirty">Campo Email Obrigatorio</span>
+			<span bg-show="frmCliente.txtEmail.$error.email">Email Invalido</span>
+		</div>
+		
+		<input type="button" value="salvar" ng-click="salvarCliente()" ng-disabled="frmCliente.$invalid"/>		
+		<input type="button" value="cancelar" ng-click="cancelarAlteracaoCliente()" ng-disabled="frmCliente.$invalid"/>
+		<div>
+			<fieldset>
+				<legend>Formulario</legend>
+				Valid: {{frmCliente.$valid}}
+				Pristine: {{frmCliente.$pristine}}
+			</fieldset>
+			
+			
+			<fieldset>
+				<legend>Nome</legend>
+				Valid: {{frmCliente.txtNome.$valid}}<br/>
+				Invalid: {{frmCliente.txtNome.$invalid}}<br/>
+				Pristine: {{frmCliente.txtNome.$pristine}}<br/>
+				Dirty: {{frmCliente.txtNome.$dirty}}<br/>
+				Touched: {{frmCliente.txtNome.$touched}}<br/>
+				Error required  : {{frmCliente.txtNome.$error.required }}<br/>
+				Error min lenght : {{frmCliente.txtNome.$error.minlength }}<br/>  
+			</fieldset>
+			
+			
+			
+			<fieldset>
+				<legend>email</legend>
+				Valid: {{frmCliente.txtEmail.$valid}}<br/>
+				Invalid: {{frmCliente.txtEmail.$invalid}}<br/>
+				Pristine: {{frmCliente.txtEmail.$pristine}}<br/>
+				Dirty: {{frmCliente.txtEmail.$dirty}}<br/>
+				Touched: {{frmCliente.txtEmail.$touched}}<br/>
+				Error required: {{frmCliente.txtEmail.$error.required}}<br/> 
+			</fieldset>
+		</div>
+	
+	</form>
+	
 	
 	<p></p>
 	{{clientes}}

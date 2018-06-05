@@ -8,6 +8,7 @@ appCliente.config(function($routeProvider, $locationProvider){
 	.when("/cidades", {templateUrl:'view/cidade.html', controller:'cidadeController'})
 	.when("/clientes/:clienteId", {templateUrl:'view/cliente-detalhe.html', controller:'clienteDetalheController'})
 	.when("/estados", {templateUrl:'view/estado.html', controller:'estadoController'})
+	.when("/login", {templateUrl:'view/login.html', controller:'loginController'})
 	.otherwise({redirectTo:'/'});
 	
 	$locationProvider.html5Mode(true);

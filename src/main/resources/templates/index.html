@@ -2,7 +2,7 @@
 <html ng-app="appCliente">
 <head>
 <base href="/" />
-<meta charset="UTF-8"></meta>
+<!-- <meta charset="UTF-8"></meta> -->
 <title>Index</title>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
@@ -14,13 +14,15 @@
 <script src="./js/controller/cliente-detalhe-controller.js"></script>
 <script src="./js/controller/cidade-controller.js"></script>
 <script src="./js/controller/estado-controller.js"></script>  
+<script src="./js/controller/login-controller.js"></script>
 </head>
 <body ng-controller="mainController">
 Ola sou o template index
 
 <a href="/clientes">Clientes</a> |
 <a href="/cidades">Cidades</a> |
-<a href="/estados">Estados</a>
+<a href="/estados">Estados</a> |
+<a href="/login">Login</a>
 <br/>
 
 path : {{$location.path()}} <br/>
