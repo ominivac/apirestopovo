@@ -17,4 +17,8 @@ public class UsuarioService {
 		return usuarioRepository.save(usuario);
 	}
 	
+	
+	public Usuario buscarPorNome(String nome) {
+		return usuarioRepository.buscarPorNome(nome);
+	}
 }

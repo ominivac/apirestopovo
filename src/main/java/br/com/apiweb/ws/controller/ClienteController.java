@@ -1,8 +1,7 @@
 package br.com.apiweb.ws.controller;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,6 +17,7 @@ import br.com.apiweb.ws.model.Cliente;
 import br.com.apiweb.ws.service.ClienteService;
 
 @RestController
+@RequestMapping("/admin")
 public class ClienteController {
 	
 	@Autowired
