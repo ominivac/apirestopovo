@@ -43,18 +43,46 @@ public class NoticiaResource {
 	
 	
 	
+	
+	/**
+	 * Lista uma notícia dado um parâmetro id
+	 *
+	 * @param  id
+	 * @return Retorna uma determinada notícia pela api, pesquisada pelo seu id.
+	 * @author Roberto Sousa
+	 */
 	@GetMapping("/noticia/{id}")
 	@ApiOperation(value = "Retorna uma noticia pelo seu id")
 	public Noticia listaNoticiaById(@PathVariable(value = "id") Long id){
 		return noticiaRepository.findById(id);
 	}
 	
+	
+	
+	
+	/**
+	 * Salva uma notícia pela api
+	 *
+	 * @param  Notícia
+	 * @return Retorna uma notícia em formato JSON, passada pela api para ser salva e a retorna.
+	 * @author Roberto Sousa
+	 */
 	@PostMapping("/noticia")
 	@ApiOperation(value = "Salva uma noticia")
 	public Noticia salvarNoticia(@RequestBody Noticia noticia) {
 		return noticiaRepository.save(noticia);
 	}
 	
+	
+	
+	
+	/**
+	 * Apaga uma notícia pela api
+	 *
+	 * @param  Nenhum
+	 * @return - void . Apaga uma notícia em formato JSON, passada pela api para ser deletada.
+	 * @author Roberto Sousa
+	 */
 	@DeleteMapping("/noticia")
 	@ApiOperation(value = "Deleta uma noticia")
 	public void DeletaNoticia(@RequestBody Noticia noticia) {
@@ -62,7 +90,13 @@ public class NoticiaResource {
 	}
 
 	
-	
+	/**
+	 * Atualiza uma notícia pela api
+	 *
+	 * @param  Notícia
+	 * @return Retorna uma notícia em formato JSON, passada pela api para ser atualizada e a retorna.
+	 * @author Roberto Sousa
+	 */
 	@PutMapping("/noticia")
 	@ApiOperation(value = "Atualiza uma noticia")
 	public Noticia atualizaNoticia(@RequestBody Noticia noticia) {

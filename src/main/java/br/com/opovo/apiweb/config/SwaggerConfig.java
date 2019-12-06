@@ -19,6 +19,13 @@ import java.util.ArrayList;
 @EnableSwagger2
 public class SwaggerConfig {
 	
+	/**
+	 * Retorna um Docket para a configuração inicial do Swagger, bem como o caminho inicial.
+	 *
+	 * @param  Nenhum
+	 * @return Docket - Retorna um Docket para a configuração inicial.
+	 * @author Roberto Sousa
+	 */
 	@Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -28,7 +35,17 @@ public class SwaggerConfig {
                 .build()
                 .apiInfo(metaInfo());
     }
+	
+	
+	
 
+	/**
+	 * Salva uma notícia pela api
+	 *
+	 * @param  Nenhum
+	 * @return Retorna a info para a home do swagger.
+	 * @author Roberto Sousa
+	 */
     private ApiInfo metaInfo() {
 
         ApiInfo apiInfo = new ApiInfo(
@@ -36,7 +53,7 @@ public class SwaggerConfig {
                 "API REST de Notícias.",
                 "1.0",
                 "Terms of Service",
-                new Contact("Roberto Sousa", "www.github.com",
+                new Contact("Roberto Sousa", "https://github.com/ominivac/apirestopovo.git",
                         "robertokbs@gmail.com"),
                 "Apache License Version 2.0",
                 "https://www.apache.org/licesen.html", new ArrayList<VendorExtension>()
